@@ -95,7 +95,7 @@
         .hero-stats { display: flex; gap: var(--sp-5); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle); }
         .hero-stat .value { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
         .hero-stat .label { font-size: 0.85rem; color: var(--text-tertiary); }
-        .diamond-visual { position: relative; width: 400px; height: 400px; margin: 0 auto; animation: float 6s ease-in-out infinite; }
+        .diamond-visual { position: relative; width: 400px; height: 400px; margin: 0 auto; animation: float 6s ease-in-out infinite; --orbit-r: 178px; }
         .diamond-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15), transparent 70%); animation: pulse 4s ease-in-out infinite; }
 
         /* Address Banner — elevated layer, sits above base */
@@ -217,7 +217,7 @@
             .hero p { margin: 0 auto 2rem; }
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
-            .diamond-visual { width: 300px; height: 300px; }
+            .diamond-visual { width: 300px; height: 300px; --orbit-r: 130px; }
             .facet-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 1.25rem; }
             .nav-links a { display: none; }
@@ -236,7 +236,7 @@
             .hero-buttons { flex-direction: column; width: 100%; }
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 0.9rem 1.5rem; }
             .hero-stats { gap: 1.25rem; flex-wrap: wrap; }
-            .diamond-visual { width: 220px; height: 220px; }
+            .diamond-visual { width: 220px; height: 220px; --orbit-r: 92px; }
 
             .address-banner { padding: 1.25rem 1.25rem; }
             .address-banner-inner { flex-direction: column; align-items: flex-start; text-align: left; gap: 1.25rem; }
@@ -885,7 +885,7 @@
   @keyframes beamSpin { to { --beam-angle:360deg; } }
   @keyframes heroBreath { 0%,100%{opacity:.55; transform:scale(1);} 50%{opacity:1; transform:scale(1.03);} }
   @keyframes orbitSpin { to { transform:rotate(360deg); } }
-  @keyframes chipOrbit { from { transform:rotate(0deg) translateX(178px) rotate(0deg); } to { transform:rotate(360deg) translateX(178px) rotate(-360deg); } }
+  @keyframes chipOrbit { from { transform:rotate(0deg) translateX(var(--orbit-r, 178px)) rotate(0deg); } to { transform:rotate(360deg) translateX(var(--orbit-r, 178px)) rotate(-360deg); } }
   .badge-dot { box-shadow: 0 0 0 0 rgba(34,197,94,.7); animation: pulseRing 2s infinite; }
   @keyframes pulseRing { 0%{box-shadow:0 0 0 0 rgba(34,197,94,.7);} 70%{box-shadow:0 0 0 12px rgba(34,197,94,0);} 100%{box-shadow:0 0 0 0 rgba(34,197,94,0);} }
   .facet-tab { transition: all .35s cubic-bezier(.2,.8,.2,1); }

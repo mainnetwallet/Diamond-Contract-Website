@@ -1172,7 +1172,7 @@
     renderList('');
 
     function closeDropdown(){ dropdown.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
-    function openDropdown(){ dropdown.classList.add('open'); btn.setAttribute('aria-expanded','true'); const s=document.getElementById('chainSearchInput'); if(s) s.focus(); }
+    function openDropdown(){ dropdown.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
 
     btn.addEventListener('click', e => {
       e.stopPropagation();

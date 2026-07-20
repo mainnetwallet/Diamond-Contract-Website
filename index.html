@@ -877,9 +877,9 @@
   .diamond-visual::after { inset:0; border:1px dashed rgba(168,85,247,.36); animation:orbitSpin 15s linear infinite reverse; }
   .diamond-visual svg { position:relative; z-index:2; }
   .orbit-chip { position:absolute; z-index:3; left:50%; top:50%; padding:.32rem .55rem; border:1px solid rgba(129,140,248,.36); border-radius:999px; background:rgba(7,7,12,.78); color:#c4b5fd; font:600 .68rem 'JetBrains Mono', monospace; box-shadow:0 0 18px rgba(99,102,241,.22); transform:translate(-50%,-50%); animation:chipOrbit 9s linear infinite; }
-  .orbit-chip:nth-child(2){ animation-duration:11s; animation-delay:-3s; color:#67e8f9; border-color:rgba(20,184,166,.36); }
-  .orbit-chip:nth-child(3){ animation-duration:13s; animation-delay:-6s; color:#fde68a; border-color:rgba(245,158,11,.36); }
-  .orbit-chip:nth-child(4){ animation-duration:10s; animation-delay:-8s; color:#f0abfc; border-color:rgba(168,85,247,.36); }
+  .orbit-chip:nth-of-type(2){ animation-duration:11s; animation-delay:-3s; color:#67e8f9; border-color:rgba(20,184,166,.36); }
+  .orbit-chip:nth-of-type(3){ animation-duration:13s; animation-delay:-6s; color:#fde68a; border-color:rgba(245,158,11,.36); }
+  .orbit-chip:nth-of-type(4){ animation-duration:10s; animation-delay:-8s; color:#f0abfc; border-color:rgba(168,85,247,.36); }
   @keyframes gradShift { to { background-position: 200% center; } }
   @keyframes gridFlow { to { background-position: 0 72px, 72px 0; } }
   @keyframes beamSpin { to { --beam-angle:360deg; } }

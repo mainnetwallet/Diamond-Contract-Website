@@ -696,6 +696,9 @@
                 <button class="facet-tab" onclick="showFacet('loupe')" id="tab-loupe">DiamondLoupe</button>
                 <button class="facet-tab" onclick="showFacet('ownership')" id="tab-ownership">Ownership</button>
                 <button class="facet-tab" onclick="showFacet('withdraw')" id="tab-withdraw">Withdraw</button>
+                <button class="facet-tab" onclick="showFacet('swap')" id="tab-swap">Swap <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
+                <button class="facet-tab" onclick="showFacet('bridge')" id="tab-bridge">Bridge <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
+                <button class="facet-tab" onclick="showFacet('tradingAi')" id="tab-tradingAi">Trading AI <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
             </div>
 
             <div class="facet-content active" id="facet-diamondCut">
@@ -819,6 +822,41 @@
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                             <span style="color: #e2e8f0; font-size: 0.9rem;">Zero-address validation</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="facet-content" id="facet-swap">
+                <div class="facet-grid">
+                    <div class="facet-panel" style="text-align:center; padding: 3rem 1.5rem;">
+                        <div style="width:56px; height:56px; margin:0 auto 1rem; border-radius:50%; background:rgba(245,158,11,0.15); display:flex; align-items:center; justify-content:center;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+                        </div>
+                        <h4 style="margin-bottom:0.5rem;">Swap Facet</h4>
+                        <p style="color:#7c879c; font-size:0.9rem; max-width:420px; margin:0 auto;">On-chain token swap module, coming soon to the Diamond. Will register under the same DiamondCut upgrade path shown above.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="facet-content" id="facet-bridge">
+                <div class="facet-grid">
+                    <div class="facet-panel" style="text-align:center; padding: 3rem 1.5rem;">
+                        <div style="width:56px; height:56px; margin:0 auto 1rem; border-radius:50%; background:rgba(245,158,11,0.15); display:flex; align-items:center; justify-content:center;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M2 12h20M6 8v8M10 6v12M14 6v12M18 8v8"/></svg>
+                        </div>
+                        <h4 style="margin-bottom:0.5rem;">Bridge Facet</h4>
+                        <p style="color:#7c879c; font-size:0.9rem; max-width:420px; margin:0 auto;">Cross-chain bridging module, coming soon. Will leverage the deterministic CREATE3 addresses for consistent deployment across chains.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="facet-content" id="facet-tradingAi">
+                <div class="facet-grid">
+                    <div class="facet-panel" style="text-align:center; padding: 3rem 1.5rem;">
+                        <div style="width:56px; height:56px; margin:0 auto 1rem; border-radius:50%; background:rgba(245,158,11,0.15); display:flex; align-items:center; justify-content:center;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.2 4.2M15.5 15.5l4.2 4.2M1 12h6M17 12h6M4.2 19.8l4.2-4.2M15.5 8.5l4.2-4.2"/></svg>
+                        </div>
+                        <h4 style="margin-bottom:0.5rem;">Trading AI Facet</h4>
+                        <p style="color:#7c879c; font-size:0.9rem; max-width:420px; margin:0 auto;">Automated trading strategy module, coming soon. Details on scope and controls will be published before launch.</p>
                     </div>
                 </div>
             </div>

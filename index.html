@@ -503,8 +503,11 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
                 <div>
-                    <div class="address-label">Deployed Address</div>
-                    <div class="address-value">0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D</div>
+                    <div class="address-label">Deployed Diamond Contract</div>
+                    <div class="address-value" id="deployedAddress" data-full="0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D" title="Click to copy" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem;">
+                        <span id="deployedAddressText">0x1D9a...23E6D</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.6;flex-shrink:0;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    </div>
                 </div>
             </div>
             <div class="address-meta">
@@ -1180,6 +1183,32 @@
     });
     document.addEventListener('click', e => { if(!wrap.contains(e.target)) closeDropdown(); });
     document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDropdown(); });
+  })();
+
+  // Deployed address click-to-copy
+  (function(){
+    const el = document.getElementById('deployedAddress');
+    const textEl = document.getElementById('deployedAddressText');
+    if(!el || !textEl) return;
+    const fullAddr = el.getAttribute('data-full');
+    const shortAddr = textEl.textContent;
+    el.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(fullAddr);
+      } catch(e) {
+        const ta = document.createElement('textarea');
+        ta.value = fullAddr;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      textEl.textContent = 'Copied!';
+      el.style.color = '#22c55e';
+      setTimeout(() => { textEl.textContent = shortAddr; el.style.color = ''; }, 1500);
+    });
   })();
 
   // Hero diamond parallax

@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'none'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'; form-action 'none';">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Diamond Contract — EIP-2535 Diamond Proxy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" integrity="sha384-PLACEHOLDER" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -372,55 +370,19 @@
             <a href="#audit">Audit</a>
             <a href="#deploy">Deploy</a>
         </div>
-        <button class="mobile-menu-btn" data-action="toggle-menu">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#architecture" data-action="toggle-menu">Architecture</a>
-        <a href="#facets" data-action="toggle-menu">Facets</a>
-        <a href="#audit" data-action="toggle-menu">Audit</a>
-        <a href="#deploy" data-action="toggle-menu">Deploy</a>
+        <a href="#architecture" onclick="toggleMobileMenu()">Architecture</a>
+        <a href="#facets" onclick="toggleMobileMenu()">Facets</a>
+        <a href="#audit" onclick="toggleMobileMenu()">Audit</a>
+        <a href="#deploy" onclick="toggleMobileMenu()">Deploy</a>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="animate-in">
-            <div class="badge">
-                <span class="badge-dot"></span>
-                EIP-2535 Compliant · Mainnet Verified
-            </div>
-            <h1>Modular Smart Contract Architecture</h1>
-            <p>Diamond Proxy pattern enabling unlimited contract upgrades, modular facets, and gas-efficient cross-chain deployments with deterministic CREATE3 addresses.</p>
-            <div class="hero-buttons">
-                <div class="chain-select-wrap" id="chainSelectWrap">
-                    <button type="button" class="btn-primary" id="chainSelectBtn" aria-haspopup="true" aria-expanded="false">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        View on Explorer
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="chain-dropdown" id="chainDropdown" role="menu" aria-label="Select network"></div>
-                </div>
-                <a href="#audit" class="btn-secondary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    Read Audit Report
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="value">0</div>
-                    <div class="label">Critical Findings</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="value">0</div>
-                    <div class="label">High Risk</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="value" style="color: #22c55e;">LOW</div>
-                    <div class="label">Overall Risk</div>
-                </div>
-            </div>
-        </div>
         <div class="animate-in delay-2">
             <div class="diamond-visual">
                 <div class="diamond-glow"></div>
@@ -493,6 +455,42 @@
   <path transform="matrix(1.4469 0 0 1.4469 -606.41 -87.478)" d="m528.46 350.51-17.465-27.849 2.2397 32.796-4.6278-32.545-11.293 30.871 9.0094-31.613-22.873 23.609 21.089-25.216-30.498 12.264 29.522-14.458-32.85-1.2007 32.85-1.2006-29.522-14.458 30.498 12.264-21.089-25.216 22.873 23.609-9.0094-31.613 11.293 30.871 4.6278-32.545-2.2397 32.796 17.465-27.849-15.385 29.049 27.282-18.337-25.871 20.28 32.382-5.6555-31.883 8.0043 31.883 8.0043-32.382-5.6555 25.871 20.28-27.282-18.337z" fill="url(#herob)" fill-opacity=".94"/>
  </g>
 </svg>
+            </div>
+        </div>
+        <div class="animate-in">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                EIP-2535 Compliant · Mainnet Verified
+            </div>
+            <h1>Modular Smart Contract Architecture</h1>
+            <p>Diamond Proxy pattern enabling unlimited contract upgrades, modular facets, and gas-efficient cross-chain deployments with deterministic CREATE3 addresses.</p>
+            <div class="hero-buttons">
+                <div class="chain-select-wrap" id="chainSelectWrap">
+                    <button type="button" class="btn-primary" id="chainSelectBtn" aria-haspopup="true" aria-expanded="false">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        View on Explorer
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="chain-dropdown" id="chainDropdown" role="menu" aria-label="Select network"></div>
+                </div>
+                <a href="#audit" class="btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Read Audit Report
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="value">0</div>
+                    <div class="label">Critical Findings</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="value">0</div>
+                    <div class="label">High Risk</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="value" style="color: #22c55e;">LOW</div>
+                    <div class="label">Overall Risk</div>
+                </div>
             </div>
         </div>
     </section>
@@ -694,13 +692,13 @@
 
         <div class="facet-explorer animate-in delay-1">
             <div class="facet-tabs">
-                <button class="facet-tab active" data-facet="diamondCut" id="tab-diamondCut">DiamondCut</button>
-                <button class="facet-tab" data-facet="loupe" id="tab-loupe">DiamondLoupe</button>
-                <button class="facet-tab" data-facet="ownership" id="tab-ownership">Ownership</button>
-                <button class="facet-tab" data-facet="withdraw" id="tab-withdraw">Withdraw</button>
-                <button class="facet-tab" data-facet="swap" id="tab-swap">Swap <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
-                <button class="facet-tab" data-facet="bridge" id="tab-bridge">Bridge <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
-                <button class="facet-tab" data-facet="tradingAi" id="tab-tradingAi">Trading AI <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
+                <button class="facet-tab active" onclick="showFacet('diamondCut')" id="tab-diamondCut">DiamondCut</button>
+                <button class="facet-tab" onclick="showFacet('loupe')" id="tab-loupe">DiamondLoupe</button>
+                <button class="facet-tab" onclick="showFacet('ownership')" id="tab-ownership">Ownership</button>
+                <button class="facet-tab" onclick="showFacet('withdraw')" id="tab-withdraw">Withdraw</button>
+                <button class="facet-tab" onclick="showFacet('swap')" id="tab-swap">Swap <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
+                <button class="facet-tab" onclick="showFacet('bridge')" id="tab-bridge">Bridge <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
+                <button class="facet-tab" onclick="showFacet('tradingAi')" id="tab-tradingAi">Trading AI <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
             </div>
 
             <div class="facet-content active" id="facet-diamondCut">
@@ -969,7 +967,7 @@
         </div>
         <p class="footer-desc">EIP-2535 Diamond Proxy · Solidity v0.8.36 · EVM Chains</p>
         <div class="footer-links">
-            <a href="https://etherscan.io/address/0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D" target="_blank" rel="noopener noreferrer">Etherscan</a>
+            <a href="https://etherscan.io/address/0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D" target="_blank">Etherscan</a>
             <a href="#">Documentation</a>
             <a href="#audit">Audit Report</a>
         </div>
@@ -979,7 +977,6 @@
     </footer>
 
     <script>
-        "use strict";
         // Facet Explorer Tabs
         function showFacet(facetName) {
             // Hide all contents
@@ -1019,25 +1016,6 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            });
-        });
-
-        // Facet tab handlers (replaced inline onclick)
-        document.querySelectorAll('[data-facet]').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const facetName = this.getAttribute('data-facet');
-                document.querySelectorAll('.facet-content').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.facet-tab').forEach(el => el.classList.remove('active'));
-                const content = document.getElementById('facet-' + facetName);
-                if(content) content.classList.add('active');
-                this.classList.add('active');
-            });
-        });
-
-        // Mobile menu toggle (replaced inline onclick)
-        document.querySelectorAll('[data-action="toggle-menu"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.getElementById('mobileMenu').classList.toggle('active');
             });
         });
     </script>
@@ -1134,7 +1112,6 @@
   @media (hover:none){ .card, .audit-card, .facet-panel, .deploy-card { transform:none !important; } #cursorGlow{ display:none; } }
 </style>
 <script>
-"use strict";
 (function(){
   // Particle network background
   const c = document.getElementById('fxCanvas');
@@ -1224,7 +1201,7 @@
     function renderList(filter){
       const q = (filter||'').toLowerCase();
       const items = CHAINS.filter(c => c.name.toLowerCase().includes(q));
-      const listHtml = items.map(c => `<a href="${c.explorer}/address/${CONTRACT}" target="_blank" rel="noopener noreferrer" role="menuitem"><span class="chain-dot"></span>${c.name}</a>`).join('') || '<div style="padding:0.6rem 0.75rem;color:#818cf8;font-size:0.85rem;">No matching network</div>';
+      const listHtml = items.map(c => `<a href="${c.explorer}/address/${CONTRACT}" target="_blank" rel="noopener" role="menuitem"><span class="chain-dot"></span>${c.name}</a>`).join('') || '<div style="padding:0.6rem 0.75rem;color:#818cf8;font-size:0.85rem;">No matching network</div>';
       dropdown.innerHTML = `<input type="text" class="chain-dropdown-search" placeholder="Search network..." id="chainSearchInput" autocomplete="off">${listHtml}`;
       const input = document.getElementById('chainSearchInput');
       if(input){
@@ -1253,7 +1230,7 @@
     if(!el || !textEl) return;
     const fullAddr = el.getAttribute('data-full');
     const shortAddr = textEl.textContent;
-    async function doCopy() {
+    el.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(fullAddr);
       } catch(e) {
@@ -1269,13 +1246,6 @@
       textEl.textContent = 'Copied!';
       el.style.color = '#22c55e';
       setTimeout(() => { textEl.textContent = shortAddr; el.style.color = ''; }, 1500);
-    }
-    el.addEventListener('click', doCopy);
-    el.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        doCopy();
-      }
     });
   })();
 

@@ -95,7 +95,7 @@
         .hero-stats { display: flex; gap: var(--sp-5); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle); }
         .hero-stat .value { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
         .hero-stat .label { font-size: 0.85rem; color: var(--text-tertiary); }
-        .diamond-visual { position: relative; width: 480px; height: 480px; margin: 0 auto; display: flex; align-items: center; justify-content: center; --orbit-r: 190px; }
+        .diamond-visual { position: relative; width: 400px; height: 400px; margin: 0 auto; --orbit-r: 225px; }
         .diamond-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15), transparent 70%); animation: pulse 4s ease-in-out infinite; }
 
         /* Address Banner — elevated layer, sits above base */
@@ -217,7 +217,7 @@
             .hero p { margin: 0 auto 2rem; }
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
-            .diamond-visual { width: 360px; height: 360px; --orbit-r: 140px; }
+            .diamond-visual { width: 300px; height: 300px; --orbit-r: 168px; }
             .facet-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 1.25rem; }
             .nav-links a { display: none; }
@@ -354,7 +354,7 @@
         <div class="animate-in delay-2">
             <div class="diamond-visual">
                 <div class="diamond-glow"></div>
-                <svg viewBox="0 0 400 400" style="width: 68%; height: 68%; filter: drop-shadow(0 0 20px rgba(99,102,241,0.3)); animation: glow 3s ease-in-out infinite;">
+                <svg viewBox="0 0 400 400" style="width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(99,102,241,0.3)); animation: glow 3s ease-in-out infinite;">
                     <defs>
                         <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.8" />

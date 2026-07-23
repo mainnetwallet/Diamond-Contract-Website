@@ -490,8 +490,8 @@
                 </div>
                 <div>
                     <div class="address-label">Deployed Diamond Contract</div>
-                    <div class="address-value" id="deployedAddress" data-full="0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D" title="Click to copy" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem;">
-                        <span id="deployedAddressText">0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D</span>
+                    <div class="address-value" id="deployedAddress" data-full="0x3121f0b77dd4C985554a46664F7D4DF2E0DD0000" title="Click to copy" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem;">
+                        <span id="deployedAddressText">0x3121f0b77dd4C985554a46664F7D4DF2E0DD0000</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.6;flex-shrink:0;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
                     </div>
                 </div>
@@ -527,7 +527,7 @@
                 </div>
                 <h3>Diamond Proxy</h3>
                 <p>Main entry point that delegates all calls to facets via secure delegatecall. Maintains shared state across all facets.</p>
-                <div class="card-address" style="background: rgba(0,0,0,0.3); color: #818cf8;">0x1D9a...23E6D</div>
+                <div class="card-address" style="background: rgba(0,0,0,0.3); color: #818cf8;">0x3121...D0000</div>
             </div>
 
             <div class="card card-green animate-in delay-2">
@@ -575,6 +575,18 @@
                 <div class="card-tags">
                     <span class="card-tag" style="background: rgba(217,70,239,0.1); color: #d946ef;">Reentrancy Guard</span>
                     <span class="card-tag" style="background: rgba(217,70,239,0.1); color: #d946ef;">Safe ERC20</span>
+                </div>
+            </div>
+
+            <div class="card card-cyan animate-in delay-3">
+                <div class="card-icon" style="background: rgba(34,211,238,0.15);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.5 0 2.9.37 4.14 1.02"/><path d="M18 4l1.5 1.5L22 3"/></svg>
+                </div>
+                <h3>Permit Facet</h3>
+                <p>EIP-2612 permit + delegatecall forwarder. One signature approves and executes a facet call, with an owner-controlled selector allowlist.</p>
+                <div class="card-tags">
+                    <span class="card-tag" style="background: rgba(34,211,238,0.1); color: #22d3ee;">Gasless Approval</span>
+                    <span class="card-tag" style="background: rgba(34,211,238,0.1); color: #22d3ee;">Selector Allowlist</span>
                 </div>
             </div>
 
@@ -682,6 +694,7 @@
                 <button class="facet-tab" onclick="showFacet('loupe')" id="tab-loupe">DiamondLoupe</button>
                 <button class="facet-tab" onclick="showFacet('ownership')" id="tab-ownership">Ownership</button>
                 <button class="facet-tab" onclick="showFacet('withdraw')" id="tab-withdraw">Withdraw</button>
+                <button class="facet-tab" onclick="showFacet('permit')" id="tab-permit">Permit</button>
                 <button class="facet-tab" onclick="showFacet('swap')" id="tab-swap">Swap <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
                 <button class="facet-tab" onclick="showFacet('bridge')" id="tab-bridge">Bridge <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
                 <button class="facet-tab" onclick="showFacet('tradingAi')" id="tab-tradingAi">Trading AI <span style="font-size:0.65rem; color:#f59e0b; margin-left:4px;">SOON</span></button>
@@ -811,6 +824,33 @@
                     </div>
                 </div>
             </div>
+            <div class="facet-content" id="facet-permit">
+                <div class="facet-grid">
+                    <div class="facet-panel">
+                        <h4>Permit Functions</h4>
+                        <div class="code-block">
+                            <div class="code-line" style="color: #818cf8; border-bottom: 1px solid rgba(255,255,255,0.05);">permitExecute(token,amount,deadline,v,r,s,facetCalldata)</div>
+                            <div class="code-line" style="color: #818cf8; border-bottom: 1px solid rgba(255,255,255,0.05);">setSelectorAllowed(bytes4,bool) owner only</div>
+                            <div class="code-line" style="color: #818cf8;">isSelectorAllowed(bytes4) returns (bool)</div>
+                        </div>
+                    </div>
+                    <div class="facet-panel">
+                        <h4>Safety Features</h4>
+                        <div class="check-item" style="background: rgba(34,211,238,0.05);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                            <span style="color: #e2e8f0; font-size: 0.9rem;">Owner-controlled selector allowlist</span>
+                        </div>
+                        <div class="check-item" style="background: rgba(34,211,238,0.05);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <span style="color: #e2e8f0; font-size: 0.9rem;">Delegatecall preserves msg.sender</span>
+                        </div>
+                        <div class="check-item" style="background: rgba(34,211,238,0.05);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                            <span style="color: #e2e8f0; font-size: 0.9rem;">Shares global reentrancy lock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="facet-content" id="facet-swap">
                 <div class="facet-grid">
                     <div class="facet-panel" style="text-align:center; padding: 3rem 1.5rem;">
@@ -865,7 +905,7 @@
                 </h4>
                 <div class="deploy-row">
                     <span class="deploy-label">Address</span>
-                    <span class="deploy-value mono">0x1D9a...23E6D</span>
+                    <span class="deploy-value mono">0x3121...D0000</span>
                 </div>
                 <div class="deploy-row">
                     <span class="deploy-label">Network</span>
@@ -953,7 +993,7 @@
         </div>
         <p class="footer-desc">EIP-2535 Diamond Proxy · Solidity v0.8.36 · EVM Chains</p>
         <div class="footer-links">
-            <a href="https://etherscan.io/address/0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D" target="_blank">Etherscan</a>
+            <a href="https://basescan.org/address/0x3121f0b77dd4C985554a46664F7D4DF2E0DD0000" target="_blank">Basescan</a>
             <a href="#">Documentation</a>
             <a href="#audit">Audit Report</a>
         </div>
@@ -1156,28 +1196,66 @@
 
   // Multi-chain explorer selector
   (function(){
-    const CONTRACT = '0x1D9a9c225d5B1031c09eD0b69B1b70A56c723E6D';
+    const CONTRACT = '0x3121f0b77dd4C985554a46664F7D4DF2E0DD0000';
     const CHAINS = [
       {name:'Ethereum', explorer:'https://etherscan.io'},
-      {name:'BNB Smart Chain', explorer:'https://bscscan.com'},
+      {name:'BNB', explorer:'https://bscscan.com'},
       {name:'Polygon', explorer:'https://polygonscan.com'},
-      {name:'Arbitrum One', explorer:'https://arbiscan.io'},
-      {name:'Optimism', explorer:'https://optimistic.etherscan.io'},
       {name:'Base', explorer:'https://basescan.org'},
-      {name:'Avalanche C-Chain', explorer:'https://snowtrace.io'},
-      {name:'Fantom', explorer:'https://ftmscan.com'},
-      {name:'Gnosis Chain', explorer:'https://gnosisscan.io'},
+      {name:'Arbitrum One', explorer:'https://arbiscan.io'},
       {name:'Linea', explorer:'https://lineascan.build'},
+      {name:'Blast', explorer:'https://blastscan.io'},
+      {name:'Optimism', explorer:'https://optimistic.etherscan.io'},
+      {name:'Avalanche', explorer:'https://snowscan.xyz'},
+      {name:'Bittorrent', explorer:'https://bttcscan.com'},
+      {name:'Celo', explorer:'https://celoscan.io'},
+      {name:'Fraxtal', explorer:'https://fraxscan.com'},
+      {name:'Gnosis', explorer:'https://gnosisscan.io'},
+      {name:'Mantle', explorer:'https://mantlescan.xyz'},
+      {name:'Memecore', explorer:'https://memecorescan.io'},
+      {name:'Moonbeam', explorer:'https://moonbeam.moonscan.io'},
+      {name:'Moonriver', explorer:'https://moonriver.moonscan.io'},
+      {name:'OP BNB', explorer:'https://opbnb.bscscan.com'},
+      {name:'Taiko', explorer:'https://taikoscan.io'},
+      {name:'XDC', explorer:'https://xdcscan.com'},
+      {name:'Ape Chain', explorer:'https://apescan.io'},
+      {name:'World', explorer:'https://worldscan.org'},
+      {name:'Sonic', explorer:'https://sonicscan.org'},
+      {name:'Unichain', explorer:'https://uniscan.xyz'},
+      {name:'Abstract', explorer:'https://abscan.org'},
+      {name:'Berachain', explorer:'https://berascan.com'},
+      {name:'Monad', explorer:'https://monadscan.com'},
+      {name:'HyperEVM', explorer:'https://hyperevmscan.io'},
+      {name:'Katana', explorer:'https://katanascan.com'},
+      {name:'Sei', explorer:'https://seiscan.io'},
+      {name:'Stable', explorer:'https://stablescan.xyz'},
+      {name:'Plasma', explorer:'https://plasmascan.to'},
+      {name:'Megaeth', explorer:'https://mega.etherscan.io'},
+      {name:'Flare', explorer:'https://flare-explorer.flare.network'},
+      {name:'Cronos', explorer:'https://explorer.cronos.org'},
+      {name:'Rootstock', explorer:'https://rootstock.blockscout.com'},
+      {name:'Telos', explorer:'https://www.teloscan.io'},
+      {name:'Fantom', explorer:'https://ftmscan.com'},
+      {name:'Manta', explorer:'https://pacific-explorer.manta.network'},
+      {name:'Boba', explorer:'https://bobascan.com'},
+      {name:'Astar', explorer:'https://astar.blockscout.com'},
+      {name:'Redstone', explorer:'https://explorer.redstone.xyz'},
+      {name:'Shibarium', explorer:'https://www.shibariumscan.io'},
       {name:'zkSync Era', explorer:'https://explorer.zksync.io'},
       {name:'Scroll', explorer:'https://scrollscan.com'},
-      {name:'Blast', explorer:'https://blastscan.io'},
-      {name:'Mantle', explorer:'https://explorer.mantle.xyz'},
-      {name:'Celo', explorer:'https://celoscan.io'},
-      {name:'Moonbeam', explorer:'https://moonscan.io'},
-      {name:'Cronos', explorer:'https://cronoscan.com'},
-      {name:'opBNB', explorer:'https://opbnbscan.com'},
-      {name:'Polygon zkEVM', explorer:'https://zkevm.polygonscan.com'},
-      {name:'Metis', explorer:'https://explorer.metis.io'}
+      {name:'Mode', explorer:'https://explorer.mode.network'},
+      {name:'Zora', explorer:'https://explorer.zora.energy'},
+      {name:'Metis', explorer:'https://andromeda-explorer.metis.io'},
+      {name:'Kaia', explorer:'https://kaiascan.io'},
+      {name:'Core', explorer:'https://scan.coredao.org'},
+      {name:'Kava', explorer:'https://kavascan.com'},
+      {name:'Aurora', explorer:'https://explorer.aurora.dev'},
+      {name:'Gravity', explorer:'https://explorer.gravity.xyz'},
+      {name:'Story', explorer:'https://www.storyscan.xyz'},
+      {name:'Hemi', explorer:'https://explorer.hemi.xyz'},
+      {name:'X Layer', explorer:'https://www.oklink.com/xlayer'},
+      {name:'Nexus', explorer:'https://explorer.nexus.xyz'},
+      {name:'Velas Evm', explorer:'https://evmexplorer.velas.com'}
     ];
     const btn = document.getElementById('chainSelectBtn');
     const dropdown = document.getElementById('chainDropdown');
